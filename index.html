@@ -67,7 +67,10 @@
             width: auto;
             margin-right: 1px;
         }
-
+        .logo-text-group {
+            /* Đảm bảo nhóm chữ không bị co lại */
+            flex-shrink: 0;
+        }
         .nav-menu {
             display: flex;
             list-style: none;
@@ -476,11 +479,14 @@
     <nav>
         <div class="nav-container">
             <div class="logo-container">
-                <img src="logos/vuanh-logo.png" alt="VU ANH Industrial" class="logo-svg">
-                <svg class="logo-svg" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-                <text x="10" y="40" font-family="Montserrat, sans-serif" font-weight="700" font-size="32" fill="#f1bc31">VU ANH</text>
-                <text x="10" y="55" font-family="Montserrat, sans-serif" font-weight="500" font-size="10" fill="#414042">INDUSTRIAL EQUIPMENT CO., LTD</text>
-                </svg>
+                <img src="logos/vuanh-logo.png" alt="VU ANH Industrial Equipment Co." class="logo-svg">
+                
+                <div class="logo-text-group">
+                    <svg class="logo-svg" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                        <text x="10" y="40" font-family="Montserrat, sans-serif" font-weight="700" font-size="32" fill="#f1bc31">VU ANH</text>
+                        <text x="10" y="55" font-family="Montserrat, sans-serif" font-weight="500" font-size="10" fill="#414042">INDUSTRIAL EQUIPMENT CO., LTD</text>
+                    </svg>
+                </div>
             </div>
             <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
             <ul class="nav-menu" id="navMenu">
@@ -798,6 +804,7 @@
             const menu = document.getElementById('navMenu');
             if (menu) {
                 menu.classList.toggle('active');
+
 
 
 
