@@ -455,3 +455,9 @@ footer {
 .security-info {
     display: none;
 }
+
+/* Loại bỏ gạch chân mặc định của thẻ <a> cho logo */
+.logo-link {
+    text-decoration: none;
+    color: inherit; /* Giữ màu chữ mặc định */
+}
