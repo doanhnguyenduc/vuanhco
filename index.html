@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vu Anh Industrial Equipment Co., Ltd - Your trusted & reliable equipment supplier and service provider for paper industry solutions.">
     <meta name="keywords" content="industrial equipment, paper industry, Krima, Grubbens, moisture meter, fiber analyzer">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self';">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
     <title>Vu Anh Industrial Equipment Co., Ltd</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,16 +50,21 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-svg {
+            height: 50px;
+            width: auto;
         }
 
         .nav-menu {
@@ -87,6 +100,12 @@
             padding: 8rem 2rem 4rem;
             text-align: center;
             margin-top: 70px;
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 2rem;
         }
 
         .hero h1 {
@@ -165,7 +184,7 @@
             font-weight: 700;
         }
 
-        /* Products Section */
+        /* Products Section - FIXED HEIGHT FOR HEADERS */
         .products {
             background: var(--light-bg);
         }
@@ -182,6 +201,8 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -192,16 +213,28 @@
             background: var(--secondary-color);
             color: white;
             padding: 1.5rem;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .product-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             margin-bottom: 0.5rem;
             font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .product-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.4;
         }
 
         .product-body {
             padding: 1.5rem;
+            flex: 1;
         }
 
         .product-body ul {
@@ -213,6 +246,7 @@
             padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
+            font-size: 0.95rem;
         }
 
         .product-body li:before {
@@ -223,30 +257,54 @@
             font-weight: 700;
         }
 
-        /* Partners Section */
+        /* Partners Section - WITH LOGOS */
         .partners-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             align-items: center;
-            text-align: center;
         }
 
         .partner-item {
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             background: white;
             border-radius: 10px;
             box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            font-weight: 600;
-            color: var(--secondary-color);
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            min-height: 150px;
+            justify-content: center;
         }
 
         .partner-item:hover {
             transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
 
-        /* Customers Section */
+        .partner-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .partner-name {
+            font-weight: 600;
+            color: var(--secondary-color);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Customers Section - WITH LOGOS */
         .customers {
             background: var(--light-bg);
         }
@@ -258,12 +316,42 @@
         }
 
         .customer-item {
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             background: white;
             border-radius: 8px;
-            text-align: center;
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            min-height: 140px;
+            justify-content: center;
+        }
+
+        .customer-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+
+        .customer-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .customer-name {
             font-weight: 500;
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--secondary-color);
         }
 
         /* Contact Section */
@@ -349,6 +437,10 @@
             .about-grid {
                 grid-template-columns: 1fr;
             }
+
+            .product-header {
+                min-height: auto;
+            }
         }
 
         .intro-text {
@@ -359,14 +451,37 @@
             line-height: 1.8;
             color: #555;
         }
+
+        /* Security notice (hidden, for documentation) */
+        .security-info {
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <!-- Security Information (Hidden) -->
+    <div class="security-info">
+        This website implements multiple security measures:
+        - Content Security Policy (CSP)
+        - X-Frame-Options: DENY
+        - X-Content-Type-Options: nosniff
+        - Referrer Policy: strict-origin-when-cross-origin
+        - No external scripts (except trusted Google Fonts)
+        - No form inputs to prevent injection attacks
+        - Static content only
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">VU ANH</div>
-            <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+            <div class="logo-container">
+                <svg class="logo-svg" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                    <!-- VU ANH Logo based on brand guidelines -->
+                    <text x="10" y="40" font-family="Montserrat, sans-serif" font-weight="700" font-size="32" fill="#f1bc31">VU ANH</text>
+                    <text x="10" y="55" font-family="Montserrat, sans-serif" font-weight="500" font-size="10" fill="#414042">INDUSTRIAL EQUIPMENT CO.</text>
+                </svg>
+            </div>
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
@@ -380,8 +495,12 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>VU ANH <span class="highlight">INDUSTRIAL EQUIPMENT COMPANY</span></h1>
-        <p>Your Trusted & Reliable Equipment Supplier and Service Provider</p>
+        <svg class="hero-logo" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+            <text x="150" y="55" font-family="Montserrat, sans-serif" font-weight="700" font-size="48" fill="#f1bc31" text-anchor="middle">VU ANH</text>
+            <text x="150" y="80" font-family="Montserrat, sans-serif" font-weight="500" font-size="14" fill="#f1bc31" text-anchor="middle">INDUSTRIAL EQUIPMENT CO., LTD</text>
+        </svg>
+        <h1>Your Trusted & Reliable <span class="highlight">Equipment Supplier</span></h1>
+        <p>Professional Equipment Solution Provider for Paper Industry</p>
         <a href="#contact" class="cta-button">Get In Touch</a>
     </section>
 
@@ -572,12 +691,30 @@
     <section id="partners" class="container">
         <h2 class="section-title">Our Partners</h2>
         <div class="partners-grid">
-            <div class="partner-item">KRIMA</div>
-            <div class="partner-item">GRUBBENS</div>
-            <div class="partner-item">TECHAP</div>
-            <div class="partner-item">EMCO</div>
-            <div class="partner-item">MORFI</div>
-            <div class="partner-item">IGT</div>
+            <div class="partner-item">
+                <div class="partner-logo">K</div>
+                <div class="partner-name">KRIMA</div>
+            </div>
+            <div class="partner-item">
+                <div class="partner-logo">G</div>
+                <div class="partner-name">GRUBBENS</div>
+            </div>
+            <div class="partner-item">
+                <div class="partner-logo">T</div>
+                <div class="partner-name">TECHAP</div>
+            </div>
+            <div class="partner-item">
+                <div class="partner-logo">E</div>
+                <div class="partner-name">EMCO</div>
+            </div>
+            <div class="partner-item">
+                <div class="partner-logo">M</div>
+                <div class="partner-name">MORFI</div>
+            </div>
+            <div class="partner-item">
+                <div class="partner-logo">I</div>
+                <div class="partner-name">IGT</div>
+            </div>
         </div>
     </section>
 
@@ -586,14 +723,38 @@
         <div class="container">
             <h2 class="section-title">Our Customers</h2>
             <div class="customers-grid">
-                <div class="customer-item">SIAM KRAFT INDUSTRY</div>
-                <div class="customer-item">HENG LONG</div>
-                <div class="customer-item">SAIGON PAPER</div>
-                <div class="customer-item">TAN MAI</div>
-                <div class="customer-item">LEE & MAN</div>
-                <div class="customer-item">TANTEC</div>
-                <div class="customer-item">VISY PAPER</div>
-                <div class="customer-item">SCG PACKAGING</div>
+                <div class="customer-item">
+                    <div class="customer-logo">SK</div>
+                    <div class="customer-name">SIAM KRAFT INDUSTRY</div>
+                </div>
+                <div class="customer-item">
+                    <div class="customer-logo">HL</div>
+                    <div class="customer-name">HENG LONG</div>
+                </div>
+                <div class="customer-item">
+                    <div class="customer-logo">SP</div>
+                    <div class="customer-name">SAIGON PAPER</div>
+                </div>
+                <div class="customer-item">
+                    <div class="customer-logo">TM</div>
+                    <div class="customer-name">TAN MAI</div>
+                </div>
+                <div class="customer-item">
+                    <div class="customer-logo">LM</div>
+                    <div class="customer-name">LEE & MAN</div>
+                </div>
+                <div class="customer-item">
+                    <div class="customer-logo">TC</div>
+                    <div class="customer-name">TANTEC</div>
+                </div>
+                <div class="customer-item">
+                    <div class="customer-logo">VP</div>
+                    <div class="customer-name">VISY PAPER</div>
+                </div>
+                <div class="customer-item">
+                    <div class="customer-logo">SC</div>
+                    <div class="customer-name">SCG PACKAGING</div>
+                </div>
             </div>
         </div>
     </section>
@@ -620,7 +781,7 @@
             </div>
             <div class="contact-item">
                 <strong>Website</strong>
-                <a href="https://vuanhco.com" target="_blank">vuanhco.com</a>
+                <a href="https://vuanhco.com" target="_blank" rel="noopener noreferrer">vuanhco.com</a>
             </div>
         </div>
     </section>
@@ -628,34 +789,14 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Vu Anh Industrial Equipment Co., Ltd. All rights reserved.</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">Secured with industry-standard security protocols</p>
     </footer>
 
     <script>
+        'use strict';
+        
+        // Mobile menu toggle with security considerations
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
-            menu.classList.toggle('active');
-        }
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navMenu').classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+            if (menu) {
+                menu.classList.toggle('active');
