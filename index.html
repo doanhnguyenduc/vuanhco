@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vu Anh Industrial Equipment Co., Ltd - Your trusted & reliable equipment supplier and service provider for paper industry solutions.">
-    <meta name="keywords" content="industrial equipment, paper industry, Krima, Grubbens, moisture meter, fiber analyzer">
+    <meta name="keywords" content="industrial equipment, paper industry, moisture meter, fiber analyzer">
     
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self';">
@@ -57,34 +57,25 @@
         }
 
         .logo-container {
-            /* Sử dụng Flexbox để đặt các phần tử cạnh nhau */
             display: flex;
-            /* Căn chỉnh các phần tử theo trục ngang */
             align-items: center; 
-            /* Có thể thêm khoảng cách (nếu cần) */
             /* gap: 10px; */
         }
         
         .logo-icon {
-            /* Đặt kích thước cho biểu tượng VA */
-            /* Thay đổi: Giảm chiều cao để logo phù hợp với chữ */
-            height: 55px;
+            height: 60px;
             width: auto;
-            /* Khoảng cách giữa logo và chữ */
-            /* Điều chỉnh giá trị này: 5px, 10px, ... */
             margin-right: 5px;
         }
         
         .logo-text-group {
-            /* Đảm bảo nhóm chữ không bị co lại */
             flex-shrink: 0;
         }
 
         .logo-svg-text {
-            /* Đặt kích thước cho khung chứa chữ SVG */
-            width: 200px; /* Giữ nguyên kích thước như viewBox */
-            height: 60px; /* Giữ nguyên kích thước như viewBox */
-            display: block; /* Đảm bảo nó là block element */
+            width: 200px;
+            height: 60px;
+            display: block;
         }
         
         .nav-menu {
@@ -163,7 +154,7 @@
 
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
@@ -388,7 +379,7 @@
             padding: 3rem;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
@@ -518,7 +509,6 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#partners">Partners</a></li>
-                <li><a href="#customers">Customers</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -749,9 +739,3 @@
             const menu = document.getElementById('navMenu');
             if (menu) {
                 menu.classList.toggle('active');
-
-
-
-
-
-
