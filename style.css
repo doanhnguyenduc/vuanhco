@@ -88,15 +88,15 @@ nav {
 .hero {
     background: linear-gradient(135deg, var(--secondary-color) 0%, #2c2c2e 100%);
     color: white;
-    padding: 8rem 2rem 4rem;
+    padding: 6rem 2rem 3rem;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 .hero-logo {
-    width: 200px;
+    width: 150px;
     height: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .hero h1 {
