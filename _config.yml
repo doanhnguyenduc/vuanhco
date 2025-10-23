@@ -1,0 +1,20 @@
+# GitHub Pages Configuration for vuanhco.com
+title: Vu Anh Industrial Equipment Co., Ltd
+description: Professional Equipment Solution Provider for Paper Industry
+url: "https://vuanhco.com"
+baseurl: ""
+
+# Security headers (for GitHub Pages)
+plugins:
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - .gitignore
+  - .git/
+
+# Include robots.txt and sitemap.xml
+include:
+  - robots.txt
+  - sitemap.xml
