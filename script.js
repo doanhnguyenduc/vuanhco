@@ -277,34 +277,43 @@ function handleFormSubmit(event) {
 }
 
 /**
- * Send email using mailto protocol (works with Exchange Online)
+ * Send email using Formspree (AJAX method with proper handling)
  * @param {Object} formData - Form data object
  * @param {HTMLElement} submitButton - Submit button element
  * @param {HTMLElement} form - Form element
  */
 function sendEmail(formData, submitButton, form) {
+    // Create FormData object for proper submission
+    const data = new FormData();
+    data.append('name', formData.name);
+    data.append('email', formData.email);
+    data.append('phone', formData.phone);
+    data.append('product', formData.product);
+    data.append('message', formData.message);
+    
     fetch('https://formspree.io/f/mqayvobj', {
         method: 'POST',
+        body: data,
         headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            product: formData.product,
-            message: formData.message
-        })
+            'Accept': 'application/json'
+        }
     })
     .then(response => {
         if (response.ok) {
             showFormMessage('Thank you for your inquiry! We will contact you soon.', 'success');
             form.reset();
         } else {
-            showFormMessage('Sorry, there was an error. Please try again.', 'error');
+            return response.json().then(data => {
+                if (data.errors) {
+                    showFormMessage('Sorry, there was an error: ' + data.errors.map(e => e.message).join(', '), 'error');
+                } else {
+                    showFormMessage('Sorry, there was an error. Please try again.', 'error');
+                }
+            });
         }
     })
     .catch(error => {
+        console.error('Formspree error:', error);
         showFormMessage('Sorry, there was an error. Please try again.', 'error');
     })
     .finally(() => {
