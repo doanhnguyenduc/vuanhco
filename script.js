@@ -283,44 +283,35 @@ function handleFormSubmit(event) {
  * @param {HTMLElement} form - Form element
  */
 function sendEmail(formData, submitButton, form) {
-    // Construct email body
-    const emailBody = `
-New Inquiry from ${formData.name}
-
-Contact Information:
-- Name: ${formData.name}
-- Email: ${formData.email}
-- Phone: ${formData.phone || 'Not provided'}
-- Product Interest: ${formData.product || 'General Inquiry'}
-
-Message:
-${formData.message}
-
----
-Sent from vuanhco.com contact form
-Date: ${new Date().toLocaleString()}
-    `.trim();
-    
-    // Encode email body for URL
-    const encodedBody = encodeURIComponent(emailBody);
-    const encodedSubject = encodeURIComponent(`Website Inquiry from ${formData.name}`);
-    
-    // Create mailto link
-    const mailtoLink = `mailto:vuanh@vuanhco.com?subject=${encodedSubject}&body=${encodedBody}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Show success message after short delay
-    setTimeout(() => {
-        showFormMessage('Email client opened! Please send the email to complete your inquiry.', 'success');
-        form.reset();
-        
-        // Re-enable button
+    fetch('https://formspree.io/f/mqayvobj', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            product: formData.product,
+            message: formData.message
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            showFormMessage('Thank you for your inquiry! We will contact you soon.', 'success');
+            form.reset();
+        } else {
+            showFormMessage('Sorry, there was an error. Please try again.', 'error');
+        }
+    })
+    .catch(error => {
+        showFormMessage('Sorry, there was an error. Please try again.', 'error');
+    })
+    .finally(() => {
         submitButton.disabled = false;
         submitButton.textContent = 'Send Inquiry';
         form.classList.remove('loading');
-    }, 1000);
+    });
 }
 
 /**
