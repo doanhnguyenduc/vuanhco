@@ -1,28 +1,83 @@
 'use strict';
 
 /**
- * Mobile menu toggle functionality
+ * Vu Anh Industrial Equipment Website
+ * Enhanced with security features and Exchange Online email integration
+ */
+
+// ============================================
+// SECURITY UTILITIES
+// ============================================
+const Utils = {
+    /**
+     * Sanitize user input to prevent XSS attacks
+     * @param {string} input - User input to sanitize
+     * @returns {string} - Sanitized string
+     */
+    sanitizeInput: function(input) {
+        if (typeof input !== 'string') return '';
+        const div = document.createElement('div');
+        div.textContent = input;
+        return div.innerHTML;
+    },
+    
+    /**
+     * Validate email format
+     * @param {string} email - Email address to validate
+     * @returns {boolean} - True if valid email format
+     */
+    validateEmail: function(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    },
+    
+    /**
+     * Debounce function to limit execution rate
+     * @param {Function} func - Function to debounce
+     * @param {number} wait - Milliseconds to wait
+     * @returns {Function} - Debounced function
+     */
+    debounce: function(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+};
+
+// ============================================
+// NAVIGATION FUNCTIONS
+// ============================================
+
+/**
+ * Toggle mobile menu visibility
  */
 function toggleMenu() {
-    const menu = document.getElementById('navMenu');
+    const navRight = document.getElementById('navRight');
     const toggleButton = document.getElementById('mobileToggle');
     
-    if (menu && toggleButton) {
-        const isActive = menu.classList.toggle('active');
+    if (navRight && toggleButton) {
+        const isActive = navRight.classList.toggle('active');
         toggleButton.setAttribute('aria-expanded', isActive.toString());
     }
 }
 
 /**
  * Close mobile menu when clicking outside
+ * @param {Event} event - Click event
  */
 function handleClickOutside(event) {
-    const menu = document.getElementById('navMenu');
+    const navRight = document.getElementById('navRight');
     const toggleButton = document.getElementById('mobileToggle');
     
-    if (menu && toggleButton && menu.classList.contains('active')) {
-        if (!menu.contains(event.target) && !toggleButton.contains(event.target)) {
-            menu.classList.remove('active');
+    if (navRight && toggleButton && navRight.classList.contains('active')) {
+        if (!navRight.contains(event.target) && !toggleButton.contains(event.target)) {
+            navRight.classList.remove('active');
             toggleButton.setAttribute('aria-expanded', 'false');
         }
     }
@@ -30,6 +85,7 @@ function handleClickOutside(event) {
 
 /**
  * Smooth scroll with offset for fixed header
+ * @param {string} target - Target selector (e.g., '#about')
  */
 function smoothScrollWithOffset(target) {
     const element = document.querySelector(target);
@@ -47,6 +103,7 @@ function smoothScrollWithOffset(target) {
 
 /**
  * Handle navigation link clicks
+ * @param {Event} event - Click event
  */
 function handleNavLinkClick(event) {
     const href = event.currentTarget.getAttribute('href');
@@ -55,10 +112,10 @@ function handleNavLinkClick(event) {
         event.preventDefault();
         
         // Close mobile menu if open
-        const menu = document.getElementById('navMenu');
+        const navRight = document.getElementById('navRight');
         const toggleButton = document.getElementById('mobileToggle');
-        if (menu && menu.classList.contains('active')) {
-            menu.classList.remove('active');
+        if (navRight && navRight.classList.contains('active')) {
+            navRight.classList.remove('active');
             if (toggleButton) {
                 toggleButton.setAttribute('aria-expanded', 'false');
             }
@@ -75,7 +132,7 @@ function handleNavLinkClick(event) {
 }
 
 /**
- * Add active class to current section in navigation
+ * Update active navigation based on scroll position
  */
 function updateActiveNav() {
     const sections = document.querySelectorAll('section[id]');
@@ -101,6 +158,217 @@ function updateActiveNav() {
     });
 }
 
+// ============================================
+// PRODUCT FILTER FEATURE
+// ============================================
+
+/**
+ * Filter products based on search input
+ * Implements XSS protection through sanitization
+ */
+function filterProducts() {
+    const filterInput = document.getElementById('productFilter');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    if (!filterInput) return;
+    
+    // Sanitize input to prevent XSS
+    const searchTerm = Utils.sanitizeInput(filterInput.value.toLowerCase().trim());
+    
+    productCards.forEach(card => {
+        const keywords = card.getAttribute('data-keywords') || '';
+        const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const description = card.querySelector('.product-header p')?.textContent.toLowerCase() || '';
+        
+        const searchableText = `${keywords} ${title} ${description}`.toLowerCase();
+        
+        if (searchableText.includes(searchTerm) || searchTerm === '') {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+
+// ============================================
+// LANGUAGE SWITCHER FEATURE
+// ============================================
+
+/**
+ * Handle language switching
+ * @param {Event} event - Click event
+ */
+function handleLanguageSwitch(event) {
+    const button = event.currentTarget;
+    const lang = button.getAttribute('data-lang');
+    
+    // Remove active from all buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+    });
+    
+    // Set active on clicked button
+    button.classList.add('active');
+    button.setAttribute('aria-pressed', 'true');
+    
+    // Store language preference in sessionStorage
+    try {
+        sessionStorage.setItem('preferred-language', lang);
+    } catch (e) {
+        console.warn('SessionStorage not available');
+    }
+    
+    // Log language change (in production, this would load translated content)
+    console.log(`Language switched to: ${lang}`);
+    
+    // NOTE: Full implementation requires i18n library or backend API
+    // For now, this is a frontend-only implementation
+}
+
+// ============================================
+// CONTACT FORM WITH EXCHANGE ONLINE INTEGRATION
+// ============================================
+
+/**
+ * Handle form submission with Exchange Online email
+ * @param {Event} event - Submit event
+ */
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const submitButton = form.querySelector('.form-submit');
+    const messageDiv = document.getElementById('formMessage');
+    
+    // Get and sanitize form values
+    const formData = {
+        name: Utils.sanitizeInput(form.name.value.trim()),
+        email: Utils.sanitizeInput(form.email.value.trim()),
+        phone: Utils.sanitizeInput(form.phone.value.trim()),
+        product: Utils.sanitizeInput(form.product.value),
+        message: Utils.sanitizeInput(form.message.value.trim())
+    };
+    
+    // Validation
+    if (!formData.name || !formData.email || !formData.message) {
+        showFormMessage('Please fill in all required fields.', 'error');
+        return;
+    }
+    
+    if (!Utils.validateEmail(formData.email)) {
+        showFormMessage('Please enter a valid email address.', 'error');
+        return;
+    }
+    
+    if (formData.message.length < 10) {
+        showFormMessage('Message must be at least 10 characters long.', 'error');
+        return;
+    }
+    
+    // Disable submit button
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    form.classList.add('loading');
+    
+    // Send email using mailto: protocol
+    // This will open the user's default email client
+    sendEmail(formData, submitButton, form);
+}
+
+/**
+ * Send email using mailto protocol (works with Exchange Online)
+ * @param {Object} formData - Form data object
+ * @param {HTMLElement} submitButton - Submit button element
+ * @param {HTMLElement} form - Form element
+ */
+function sendEmail(formData, submitButton, form) {
+    // Construct email body
+    const emailBody = `
+New Inquiry from ${formData.name}
+
+Contact Information:
+- Name: ${formData.name}
+- Email: ${formData.email}
+- Phone: ${formData.phone || 'Not provided'}
+- Product Interest: ${formData.product || 'General Inquiry'}
+
+Message:
+${formData.message}
+
+---
+Sent from vuanhco.com contact form
+Date: ${new Date().toLocaleString()}
+    `.trim();
+    
+    // Encode email body for URL
+    const encodedBody = encodeURIComponent(emailBody);
+    const encodedSubject = encodeURIComponent(`Website Inquiry from ${formData.name}`);
+    
+    // Create mailto link
+    const mailtoLink = `mailto:vuanh@vuanhco.com?subject=${encodedSubject}&body=${encodedBody}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message after short delay
+    setTimeout(() => {
+        showFormMessage('Email client opened! Please send the email to complete your inquiry.', 'success');
+        form.reset();
+        
+        // Re-enable button
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Inquiry';
+        form.classList.remove('loading');
+    }, 1000);
+}
+
+/**
+ * Display form message
+ * @param {string} message - Message to display
+ * @param {string} type - Message type ('success' or 'error')
+ */
+function showFormMessage(message, type) {
+    const messageDiv = document.getElementById('formMessage');
+    if (messageDiv) {
+        messageDiv.textContent = message;
+        messageDiv.className = `form-message ${type}`;
+        messageDiv.style.display = 'block';
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            messageDiv.style.display = 'none';
+        }, 5000);
+    }
+}
+
+// ============================================
+// KEYBOARD NAVIGATION
+// ============================================
+
+/**
+ * Handle keyboard navigation (ESC key to close menu)
+ * @param {KeyboardEvent} event - Keyboard event
+ */
+function handleKeyboardNav(event) {
+    if (event.key === 'Escape') {
+        const navRight = document.getElementById('navRight');
+        const toggleButton = document.getElementById('mobileToggle');
+        
+        if (navRight && navRight.classList.contains('active')) {
+            navRight.classList.remove('active');
+            if (toggleButton) {
+                toggleButton.setAttribute('aria-expanded', 'false');
+                toggleButton.focus();
+            }
+        }
+    }
+}
+
+// ============================================
+// LAZY LOADING IMAGES
+// ============================================
+
 /**
  * Lazy load images when they enter viewport
  */
@@ -125,24 +393,9 @@ function lazyLoadImages() {
     }
 }
 
-/**
- * Add keyboard navigation support
- */
-function handleKeyboardNav(event) {
-    // Close menu on Escape key
-    if (event.key === 'Escape') {
-        const menu = document.getElementById('navMenu');
-        const toggleButton = document.getElementById('mobileToggle');
-        
-        if (menu && menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            if (toggleButton) {
-                toggleButton.setAttribute('aria-expanded', 'false');
-                toggleButton.focus();
-            }
-        }
-    }
-}
+// ============================================
+// INITIALIZATION
+// ============================================
 
 /**
  * Initialize all functionality when DOM is ready
@@ -160,13 +413,31 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', handleNavLinkClick);
     });
     
+    // Language switcher
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(button => {
+        button.addEventListener('click', handleLanguageSwitch);
+    });
+    
+    // Product filter with debounce (300ms delay)
+    const filterInput = document.getElementById('productFilter');
+    if (filterInput) {
+        filterInput.addEventListener('input', Utils.debounce(filterProducts, 300));
+    }
+    
+    // Form submission
+    const inquiryForm = document.getElementById('inquiryForm');
+    if (inquiryForm) {
+        inquiryForm.addEventListener('submit', handleFormSubmit);
+    }
+    
     // Click outside to close menu
     document.addEventListener('click', handleClickOutside);
     
     // Keyboard navigation
     document.addEventListener('keydown', handleKeyboardNav);
     
-    // Update active navigation on scroll
+    // Update active navigation on scroll (with requestAnimationFrame for performance)
     let scrollTimer;
     window.addEventListener('scroll', () => {
         if (scrollTimer) {
@@ -177,25 +448,71 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { passive: true });
     
-    // Initialize lazy loading
+    // Initialize lazy loading for images
     lazyLoadImages();
     
     // Set initial active nav state
     updateActiveNav();
+    
+    // Load saved language preference from sessionStorage
+    try {
+        const savedLang = sessionStorage.getItem('preferred-language');
+        if (savedLang) {
+            const langButton = document.querySelector(`[data-lang="${savedLang}"]`);
+            if (langButton) {
+                langButton.click();
+            }
+        }
+    } catch (e) {
+        console.warn('SessionStorage not available');
+    }
+    
+    console.log('Vu Anh Website initialized successfully');
 });
 
+// ============================================
+// PAGE VISIBILITY HANDLING
+// ============================================
+
 /**
- * Handle page visibility change (tab switching)
+ * Handle page visibility changes (tab switching)
  */
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
         // Page is hidden - can pause animations if needed
+        console.log('Page hidden');
     } else {
         // Page is visible - can resume animations if needed
+        console.log('Page visible');
     }
 });
 
+// ============================================
+// ADD CSS CLASS FOR JAVASCRIPT-ENABLED FEATURES
+// ============================================
+
 /**
- * Add CSS class for JavaScript-enabled features
+ * Add class to HTML element to indicate JavaScript is enabled
+ * This allows CSS to style elements differently when JS is available
  */
 document.documentElement.classList.add('js-enabled');
+
+// ============================================
+// ERROR HANDLING
+// ============================================
+
+/**
+ * Global error handler for uncaught errors
+ */
+window.addEventListener('error', (event) => {
+    console.error('Global error:', event.error);
+    // In production, you might want to send this to an error tracking service
+});
+
+/**
+ * Global handler for unhandled promise rejections
+ */
+window.addEventListener('unhandledrejection', (event) => {
+    console.error('Unhandled promise rejection:', event.reason);
+    // In production, you might want to send this to an error tracking service
+});
