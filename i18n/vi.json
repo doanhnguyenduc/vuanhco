@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "Vu Anh Industrial Equipment - Giải Pháp Ngành Giấy Việt Nam | Nhà Phân Phối EMCO",
+    "description": "Vu Anh Industrial Equipment - Nhà cung cấp giải pháp thiết bị chuyên nghiệp cho ngành giấy. Hơn 10 năm kinh nghiệm với máy đo độ ẩm, máy phân tích sợi, cảm biến áp suất & van công nghiệp."
+  },
+  "nav": {
+    "home": "Trang Chủ",
+    "about": "Về Chúng Tôi",
+    "products": "Sản Phẩm",
+    "partners": "Đối Tác",
+    "contact": "Liên Hệ"
+  },
+  "hero": {
+    "title": "Đối Tác Đáng Tin Cậy",
+    "titleHighlight": "Cung Cấp Thiết Bị",
+    "subtitle": "Nhà Cung Cấp Giải Pháp Thiết Bị Chuyên Nghiệp Cho Ngành Giấy",
+    "cta": "Liên Hệ Ngay"
+  },
+  "about": {
+    "title": "Chúng Tôi Là Ai",
+    "intro": "Gần 10 năm qua, chúng tôi đã hợp tác với các nhà sản xuất thiết bị công nghệ giấy trên toàn thế giới—từ các tập đoàn lớn đến các startup sáng tạo—cung cấp các giải pháp và sản phẩm đa dạng giúp khách hàng xây dựng doanh nghiệp vững mạnh và bền vững. Với đội ngũ chuyên gia giàu kinh nghiệm trong ngành, chúng tôi tiếp tục cung cấp sản phẩm và dịch vụ mang lại kết quả thực tế, có thể đo lường được.",
+    "mission": {
+      "title": "SỨ MỆNH",
+      "text": "Trở thành nhà cung cấp thiết bị và dịch vụ đáng tin cậy của bạn."
+    },
+    "vision": {
+      "title": "TẦM NHÌN",
+      "text": "Đạt được mức độ công nhận cao nhất với tư cách là Nhà Cung Cấp Giải Pháp Thiết Bị Chuyên Nghiệp trên thị trường Việt Nam."
+    },
+    "expertise": {
+      "title": "CHUYÊN MÔN",
+      "text": "Gần một thập kỷ kinh nghiệm cung cấp giải pháp sáng tạo cho ngành giấy với kết quả có thể đo lường."
+    }
+  },
+  "products": {
+    "title": "Sản Phẩm & Giải Pháp",
+    "filterPlaceholder": "Tìm kiếm sản phẩm... (vd: độ ẩm, van, sợi)",
+    "items": [
+      {
+        "title": "MÁY ĐO ĐỘ ẨM EMCO CHO KIỆN GIẤY",
+        "series": "Dòng AP500",
+        "features": [
+          "AP500-M6: Đo lường di động dựa trên web",
+          "Xác định độ ẩm nhanh chóng mà không cần lấy mẫu",
+          "Phát hiện sự tích tụ độ ẩm trong kiện",
+          "Giải pháp di động và hiệu quả"
+        ]
+      },
+      {
+        "title": "EMCO DPM",
+        "series": "Đo Thấm Động",
+        "features": [
+          "Đo truyền siêu âm đã được hiệu chuẩn",
+          "Phương pháp phân tích vật liệu sáng tạo",
+          "Động lực tương tác chất lỏng",
+          "Phụ kiện DDPM để đo giãn nở/co ngót"
+        ]
+      },
+      {
+        "title": "MÁY KIỂM TRA LIÊN KẾT NỘI BỘ EMCO",
+        "series": "Hệ Thống IBT & Pendulum",
+        "features": [
+          "Xác định độ bền tách lớp",
+          "Cho giấy, bìa carton và hệ thống ghép",
+          "Bộ kiểm tra theo Tappi T569 và ISO16260",
+          "Dao cắt mẫu cho nhiều loại thử nghiệm"
+        ]
+      },
+      {
+        "title": "CẢM BIẾN ÁP SUẤT/MỨC NƯỚC",
+        "series": "Giải Pháp Tiêu Chuẩn & Thông Minh",
+        "features": [
+          "Dòng 2000: Chìm nước, 4-20mA, độ chính xác 0.2%",
+          "Dòng 4000: Tùy chọn HART thông minh, độ chính xác 0.1%",
+          "Dòng 8000: HART tiên tiến, độ chính xác 0.075%",
+          "Công nghệ đo lường đáng tin cậy"
+        ]
+      },
+      {
+        "title": "VAN - ON/OFF & ĐIỀU KHIỂN",
+        "series": "Giải Pháp Van Toàn Diện",
+        "features": [
+          "Van thủ công, cửa dao và bi phân đoạn",
+          "Van bướm với bộ truyền động DA",
+          "Thân CF8 với linh kiện SS304+HCR",
+          "Tùy chọn ghế mềm hoặc kim loại"
+        ]
+      },
+      {
+        "title": "MÁY PHÂN TÍCH SỢI MORFI NEO",
+        "series": "Phân Tích Toàn Diện Bột Giấy & Giấy",
+        "features": [
+          "Đặc tính hóa bột giấy hoàn chỉnh",
+          "Phân tích sợi, phần tử mịn, shives, vessels",
+          "Kiểm soát quá trình và kiểm soát nghiền",
+          "Mô hình hóa tính chất vật lý",
+          "Tùy chọn trực tuyến và phòng thí nghiệm"
+        ]
+      },
+      {
+        "title": "SIMPALAB",
+        "series": "Đếm Bẩn & Phát Hiện Stickies",
+        "features": [
+          "Đếm bẩn chính xác trên tờ giấy",
+          "Phát hiện đốm đen, xám và trắng (63μm)",
+          "Nhận diện shives và stickies",
+          "Nhiều định dạng hiển thị kết quả"
+        ]
+      },
+      {
+        "title": "MÁY KIỂM TRA KHẢ NĂNG IN IGT",
+        "series": "Dòng F1",
+        "features": [
+          "Hệ thống proofer flexo đa năng",
+          "Tương thích với mực dung môi, UV và nước",
+          "Nhiều tùy chọn cơ chất",
+          "Bìa sóng và thiết bị in khắc sâu"
+        ]
+      }
+    ]
+  },
+  "partners": {
+    "title": "Đối Tác Của Chúng Tôi"
+  },
+  "contact": {
+    "title": "Liên Hệ",
+    "info": {
+      "title": "Thông Tin Công Ty",
+      "company": "Tên Công Ty",
+      "companyValue": "Công Ty TNHH Thiết Bị Công Nghiệp Vũ Anh",
+      "person": "Người Liên Hệ",
+      "personValue": "Nguyễn Doanh",
+      "phone": "Điện Thoại",
+      "email": "Email",
+      "website": "Website"
+    },
+    "form": {
+      "title": "Gửi Yêu Cầu",
+      "name": "Họ Và Tên",
+      "nameRequired": "Họ Và Tên *",
+      "email": "Địa Chỉ Email",
+      "emailRequired": "Địa Chỉ Email *",
+      "phone": "Số Điện Thoại",
+      "product": "Sản Phẩm Quan Tâm",
+      "productSelect": "-- Chọn sản phẩm --",
+      "productOptions": {
+        "moistureMeter": "Máy Đo Độ Ẩm EMCO",
+        "dpm": "EMCO DPM",
+        "bondTester": "Máy Kiểm Tra Liên Kết Nội Bộ",
+        "transmitters": "Cảm Biến Áp Suất/Mức",
+        "valves": "Giải Pháp Van",
+        "fiberAnalyzer": "Máy Phân Tích Sợi MORFI NEO",
+        "simpalab": "SIMPALAB",
+        "printability": "Máy Kiểm Tra In IGT",
+        "other": "Khác / Yêu Cầu Chung"
+      },
+      "message": "Nội Dung",
+      "messageRequired": "Nội Dung *",
+      "messagePlaceholder": "Vui lòng mô tả yêu cầu của bạn...",
+      "submit": "Gửi Yêu Cầu",
+      "submitting": "Đang gửi...",
+      "success": "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.",
+      "error": "Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại.",
+      "errorFields": "Vui lòng điền đầy đủ các trường bắt buộc.",
+      "errorEmail": "Vui lòng nhập địa chỉ email hợp lệ.",
+      "errorMessage": "Nội dung phải có ít nhất 10 ký tự.",
+      "errorRate": "Quá nhiều yêu cầu. Vui lòng đợi {time} giây."
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Công Ty TNHH Thiết Bị Công Nghiệp Vũ Anh. Bảo lưu mọi quyền."
+  },
+  "accessibility": {
+    "skipLink": "Chuyển đến nội dung chính",
+    "toggleMenu": "Mở/đóng menu điều hướng",
+    "switchLang": "Chuyển sang {lang}"
+  }
+}
