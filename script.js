@@ -393,14 +393,82 @@ function lazyLoadImages() {
     }
 }
 
+
+
 // ============================================
-// INITIALIZATION
+// PAGE VISIBILITY HANDLING
 // ============================================
 
 /**
- * Initialize all functionality when DOM is ready
+ * Handle page visibility changes (tab switching)
  */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        // Page is hidden - can pause animations if needed
+        console.log('Page hidden');
+    } else {
+        // Page is visible - can resume animations if needed
+        console.log('Page visible');
+    }
+});
+
+// ============================================
+// ADD CSS CLASS FOR JAVASCRIPT-ENABLED FEATURES
+// ============================================
+
+/**
+ * Add class to HTML element to indicate JavaScript is enabled
+ * This allows CSS to style elements differently when JS is available
+ */
+document.documentElement.classList.add('js-enabled');
+
+// ============================================
+// ERROR HANDLING
+// ============================================
+
+/**
+ * Global error handler for uncaught errors
+ */
+window.addEventListener('error', (event) => {
+    console.error('Global error:', event.error);
+    // In production, you might want to send this to an error tracking service
+});
+
+/**
+ * Global handler for unhandled promise rejections
+ */
+window.addEventListener('unhandledrejection', (event) => {
+    console.error('Unhandled promise rejection:', event.reason);
+    // In production, you might want to send this to an error tracking service
+});
+
+// ============================================
+// INITIALIZATION
+// ============================================
+// Wrap DOMContentLoaded code:
+
+function initializeWebsite() {
+    // Original DOMContentLoaded code goes here
+    // (Everything except i18n, analytics, form-handler, pwa-prompt)
+    
+    // Mobile toggle
+    const toggleButton = document.getElementById('mobileToggle');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', toggleMenu);
+    }
+    
+    // Navigation links
+    const navLinks = document.querySelectorAll('.nav-menu a, .cta-button');
+    navLinks.forEach(link => {
+        link.addEventListener('click', handleNavLinkClick);
+    });
+    
+    // Product filter
+    const filterInput = document.getElementById('productFilter');
+    if (filterInput) {
+        filterInput.addEventListener('input', Utils.debounce(filterProducts, 300));
+    }
+    
     // Mobile toggle button
     const toggleButton = document.getElementById('mobileToggle');
     if (toggleButton) {
@@ -468,51 +536,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     console.log('Vu Anh Website initialized successfully');
-});
-
-// ============================================
-// PAGE VISIBILITY HANDLING
-// ============================================
-
-/**
- * Handle page visibility changes (tab switching)
- */
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        // Page is hidden - can pause animations if needed
-        console.log('Page hidden');
-    } else {
-        // Page is visible - can resume animations if needed
-        console.log('Page visible');
-    }
-});
-
-// ============================================
-// ADD CSS CLASS FOR JAVASCRIPT-ENABLED FEATURES
-// ============================================
-
-/**
- * Add class to HTML element to indicate JavaScript is enabled
- * This allows CSS to style elements differently when JS is available
- */
-document.documentElement.classList.add('js-enabled');
-
-// ============================================
-// ERROR HANDLING
-// ============================================
-
-/**
- * Global error handler for uncaught errors
- */
-window.addEventListener('error', (event) => {
-    console.error('Global error:', event.error);
-    // In production, you might want to send this to an error tracking service
-});
-
-/**
- * Global handler for unhandled promise rejections
- */
-window.addEventListener('unhandledrejection', (event) => {
-    console.error('Unhandled promise rejection:', event.reason);
-    // In production, you might want to send this to an error tracking service
-});
+}
