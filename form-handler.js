@@ -106,14 +106,6 @@ const FormHandler = {
             product: SecurityUtils.sanitizeInput(form.product.value),
             message: SecurityUtils.sanitizeInput(form.message.value.trim())
         };
-    // Also update validation to use SecurityUtils
-    if (!SecurityUtils.validateEmail(data.email)) {
-    return { valid: false, message: i18n.t('contact.form.errorEmail'), fields: ['email'] };
-    }
-
-    if (data.phone && !SecurityUtils.validatePhone(data.phone)) {
-    return { valid: false, message: 'Phone number contains invalid characters', fields: ['phone'] };
-    }
     },
     
     /**
@@ -130,25 +122,19 @@ const FormHandler = {
             return { valid: false, message: 'Name is too long (max 100 characters)', fields: ['name'] };
         }
         
-        // Email validation
+        // Email validation - USE SecurityUtils
         if (!data.email) {
             invalidFields.push('email');
-        } else if (!Utils.validateEmail(data.email)) {
+        } else if (!SecurityUtils.validateEmail(data.email)) {
             return { valid: false, message: i18n.t('contact.form.errorEmail'), fields: ['email'] };
         }
         if (data.email.length > 254) {
             return { valid: false, message: 'Email is too long', fields: ['email'] };
         }
         
-        // Phone validation (optional but must be valid if provided)
-        if (data.phone && data.phone.length > 0) {
-            const phoneRegex = /^[\d\s\-\+\(\)]+$/;
-            if (!phoneRegex.test(data.phone)) {
-                return { valid: false, message: 'Phone number contains invalid characters', fields: ['phone'] };
-            }
-            if (data.phone.length > 20) {
-                return { valid: false, message: 'Phone number is too long', fields: ['phone'] };
-            }
+        // Phone validation - USE SecurityUtils
+        if (data.phone && !SecurityUtils.validatePhone(data.phone)) {
+            return { valid: false, message: 'Phone number contains invalid characters', fields: ['phone'] };
         }
         
         // Message validation
