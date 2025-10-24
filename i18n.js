@@ -25,7 +25,7 @@ const i18n = {
         // Update language buttons
         this.updateLanguageButtons();
         
-        console.log(`i18n initialized with language: ${this.currentLang}`);
+        console.log(`✅ i18n initialized with language: ${this.currentLang}`);
     },
     
     /**
@@ -142,7 +142,7 @@ const i18n = {
             }
         });
 
-        // 🆕 NEW: Handle placeholder translations separately
+        // Handle placeholder translations separately
         document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
             const key = element.getAttribute('data-i18n-placeholder');
             const translation = this.t(key);
@@ -150,22 +150,6 @@ const i18n = {
                 element.placeholder = translation;
             }
         });
-    
-        // Update elements with data-i18n-html (for HTML content)
-        document.querySelectorAll('[data-i18n-html]').forEach(element => {
-            const key = element.getAttribute('data-i18n-html');
-            element.innerHTML = this.t(key);
-        });
-    
-        // Update aria-label attributes
-        document.querySelectorAll('[data-i18n-aria]').forEach(element => {
-            const key = element.getAttribute('data-i18n-aria');
-            element.setAttribute('aria-label', this.t(key));
-        });
-    
-        // Update document language attribute
-        document.documentElement.lang = this.getLangCode();
-        },
     
         // Update elements with data-i18n-html (for HTML content)
         document.querySelectorAll('[data-i18n-html]').forEach(element => {
