@@ -456,5 +456,37 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="form-handler.js"></script>
+    <script src="pwa-prompt.js"></script>
+
+    <!-- Updated Initialization -->
+    <script>
+        // Initialize everything in correct order
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 1. Initialize i18n first
+            await i18n.init();
+            
+            // 2. Initialize form handler
+            const inquiryForm = document.getElementById('inquiryForm');
+            if (inquiryForm) {
+                inquiryForm.addEventListener('submit', (e) => FormHandler.handleSubmit(e));
+            }
+            
+            // 3. Update language switcher to use i18n
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const lang = e.currentTarget.getAttribute('data-lang');
+                    i18n.switchLanguage(lang);
+                });
+            });
+            
+            // 4. Initialize original features
+            initializeWebsite(); // From script.js
+            
+            console.log('✅ Vu Anh Website fully initialized');
+        });
+    </script>
 </body>
 </html>
+
