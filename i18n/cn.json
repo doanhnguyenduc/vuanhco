@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "title": "Vu Anh工业设备 - 越南造纸行业解决方案 | EMCO经销商",
+    "description": "Vu Anh工业设备 - 专业造纸行业设备解决方案供应商。超过10年经验提供水分测量仪、纤维分析仪、压力传感器和工业阀门。"
+  },
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "products": "产品",
+    "partners": "合作伙伴",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "title": "值得信赖可靠的",
+    "titleHighlight": "设备供应商",
+    "subtitle": "造纸行业专业设备解决方案供应商",
+    "cta": "立即联系"
+  },
+  "about": {
+    "title": "关于我们",
+    "intro": "近10年来,我们与全球造纸技术设备制造商合作——从大型企业到创新初创公司——提供多样化的解决方案和产品,帮助客户建立稳健持久的业务。凭借经验丰富的行业专业团队,我们继续提供可衡量的实际效果的产品和服务。",
+    "mission": {
+      "title": "使命",
+      "text": "成为您值得信赖和可靠的设备供应商和服务提供商。"
+    },
+    "vision": {
+      "title": "愿景",
+      "text": "成为越南市场公认的专业设备解决方案供应商的最高水平。"
+    },
+    "expertise": {
+      "title": "专业知识",
+      "text": "近十年为造纸行业提供创新解决方案并取得可衡量成果的经验。"
+    }
+  },
+  "products": {
+    "title": "产品与解决方案",
+    "filterPlaceholder": "搜索产品...(例如:水分、阀门、纤维)",
+    "items": [
+      {
+        "title": "EMCO纸捆水分测量仪",
+        "series": "AP500系列",
+        "features": [
+          "AP500-M6:基于网络的移动测量",
+          "无需采样快速测定水分",
+          "检测纸捆中的水分积聚",
+          "便携高效的解决方案"
+        ]
+      },
+      {
+        "title": "EMCO DPM",
+        "series": "动态渗透测量",
+        "features": [
+          "校准超声波传输测量",
+          "创新材料分析方法",
+          "液体相互作用动力学",
+          "DDPM附件用于膨胀/收缩测量"
+        ]
+      },
+      {
+        "title": "EMCO内部结合强度测试仪",
+        "series": "IBT和摆锤系统",
+        "features": [
+          "分层强度测定",
+          "适用于纸张、纸板和复合系统",
+          "符合Tappi T569和ISO16260的测试套件",
+          "用于各种测试的样品切割器"
+        ]
+      },
+      {
+        "title": "压力/液位变送器",
+        "series": "标准与智能解决方案",
+        "features": [
+          "2000系列:潜水型,4-20mA,0.2%精度",
+          "4000系列:智能HART选项,0.1%精度",
+          "8000系列:高级HART,0.075%精度",
+          "可靠的测量技术"
+        ]
+      },
+      {
+        "title": "阀门 - 开关与控制",
+        "series": "完整阀门解决方案",
+        "features": [
+          "手动、闸刀和分段球阀",
+          "带DA执行器的蝶阀",
+          "CF8阀体配SS304+HCR部件",
+          "软密封或金属密封选项"
+        ]
+      },
+      {
+        "title": "MORFI NEO纤维分析仪",
+        "series": "纸浆和纸张完整分析",
+        "features": [
+          "完整的纸浆特性分析",
+          "纤维、细小元素、碎片、导管分析",
+          "过程控制和打浆控制",
+          "物理性能建模",
+          "在线和实验室选项"
+        ]
+      },
+      {
+        "title": "SIMPALAB",
+        "series": "污点计数与胶粘物检测",
+        "features": [
+          "准确计数纸张上的污点",
+          "检测黑色、灰色和白色斑点(63μm)",
+          "识别碎片和胶粘物",
+          "多种结果显示格式"
+        ]
+      },
+      {
+        "title": "IGT印刷适性测试仪",
+        "series": "F1系列",
+        "features": [
+          "通用柔版打样系统",
+          "兼容溶剂型、UV和水性油墨",
+          "多种基材选项",
+          "瓦楞纸板和凹版印刷设施"
+        ]
+      }
+    ]
+  },
+  "partners": {
+    "title": "我们的合作伙伴"
+  },
+  "contact": {
+    "title": "联系我们",
+    "info": {
+      "title": "公司信息",
+      "company": "公司名称",
+      "companyValue": "Vu Anh工业设备有限公司",
+      "person": "联系人",
+      "personValue": "Doanh Nguyen",
+      "phone": "电话",
+      "email": "邮箱",
+      "website": "网站"
+    },
+    "form": {
+      "title": "发送询价",
+      "name": "姓名",
+      "nameRequired": "姓名 *",
+      "email": "电子邮件地址",
+      "emailRequired": "电子邮件地址 *",
+      "phone": "电话号码",
+      "product": "感兴趣的产品",
+      "productSelect": "-- 选择产品 --",
+      "productOptions": {
+        "moistureMeter": "EMCO水分测量仪",
+        "dpm": "EMCO DPM",
+        "bondTester": "内部结合强度测试仪",
+        "transmitters": "压力/液位变送器",
+        "valves": "阀门解决方案",
+        "fiberAnalyzer": "MORFI NEO纤维分析仪",
+        "simpalab": "SIMPALAB",
+        "printability": "IGT印刷适性测试仪",
+        "other": "其他/一般咨询"
+      },
+      "message": "留言",
+      "messageRequired": "留言 *",
+      "messagePlaceholder": "请描述您的需求...",
+      "submit": "发送询价",
+      "submitting": "发送中...",
+      "success": "感谢您的咨询!我们将尽快与您联系。",
+      "error": "抱歉,发生错误。请重试。",
+      "errorFields": "请填写所有必填字段。",
+      "errorEmail": "请输入有效的电子邮件地址。",
+      "errorMessage": "留言必须至少包含10个字符。",
+      "errorRate": "请求过多。请等待{time}秒。"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Vu Anh工业设备有限公司。保留所有权利。"
+  },
+  "accessibility": {
+    "skipLink": "跳转到主要内容",
+    "toggleMenu": "切换导航菜单",
+    "switchLang": "切换到{lang}"
+  }
+}
