@@ -100,12 +100,20 @@ const FormHandler = {
      */
     extractFormData: function(form) {
         return {
-            name: Utils.sanitizeInput(form.name.value.trim()),
-            email: Utils.sanitizeInput(form.email.value.trim()),
-            phone: Utils.sanitizeInput(form.phone.value.trim()),
-            product: Utils.sanitizeInput(form.product.value),
-            message: Utils.sanitizeInput(form.message.value.trim())
+            name: SecurityUtils.sanitizeInput(form.name.value.trim()),
+            email: SecurityUtils.sanitizeInput(form.email.value.trim()),
+            phone: SecurityUtils.sanitizeInput(form.phone.value.trim()),
+            product: SecurityUtils.sanitizeInput(form.product.value),
+            message: SecurityUtils.sanitizeInput(form.message.value.trim())
         };
+    // Also update validation to use SecurityUtils
+    if (!SecurityUtils.validateEmail(data.email)) {
+    return { valid: false, message: i18n.t('contact.form.errorEmail'), fields: ['email'] };
+    }
+
+    if (data.phone && !SecurityUtils.validatePhone(data.phone)) {
+    return { valid: false, message: 'Phone number contains invalid characters', fields: ['phone'] };
+    }
     },
     
     /**
