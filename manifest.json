@@ -1,0 +1,55 @@
+{
+  "name": "Vu Anh Industrial Equipment",
+  "short_name": "Vu Anh",
+  "description": "Professional Equipment Solution Provider for Paper Industry",
+  "start_url": "/?source=pwa",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f1bc31",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "logos/vuanh-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logos/vuanh-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Send inquiry to Vu Anh",
+      "url": "/#contact",
+      "icons": [{ "src": "logos/vuanh-logo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Products",
+      "short_name": "Products",
+      "description": "View our products",
+      "url": "/#products",
+      "icons": [{ "src": "logos/vuanh-logo.png", "sizes": "96x96" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshots/mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}
