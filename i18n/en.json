@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "title": "Vu Anh Industrial Equipment - Paper Industry Solutions Vietnam | EMCO Distributor",
+    "description": "Vu Anh Industrial Equipment - Professional paper industry solutions provider. 10+ years experience in moisture meters, fiber analyzers, pressure transmitters & valves. Contact us today!"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Your Trusted & Reliable",
+    "titleHighlight": "Equipment Supplier",
+    "subtitle": "Professional Equipment Solution Provider for Paper Industry",
+    "cta": "Get In Touch"
+  },
+  "about": {
+    "title": "Who We Are",
+    "intro": "For nearly 10 years, we have partnered with paper technology equipment manufacturers worldwide—from major corporations to innovative startups—delivering diverse solutions and products that help our clients build robust and enduring businesses. With a team of experienced industry professionals, we continue to provide products and services that deliver measurable, real-world results.",
+    "mission": {
+      "title": "MISSION",
+      "text": "To become your trusted and reliable equipment supplier and service provider."
+    },
+    "vision": {
+      "title": "VISION",
+      "text": "To achieve the highest level of recognition as a Professional Equipment Solution Provider across Vietnam's market."
+    },
+    "expertise": {
+      "title": "EXPERTISE",
+      "text": "Nearly a decade of experience delivering innovative solutions for the paper industry with measurable results."
+    }
+  },
+  "products": {
+    "title": "Our Products & Solutions",
+    "filterPlaceholder": "Search products... (e.g., moisture, valve, fiber)",
+    "items": [
+      {
+        "title": "EMCO MOISTURE METER FOR PAPER BALES",
+        "series": "AP500 Series",
+        "features": [
+          "AP500-M6: Web-based mobile measurement",
+          "Quick moisture determination without sampling",
+          "Detects moisture accumulation in bales",
+          "Portable and efficient solutions"
+        ]
+      },
+      {
+        "title": "EMCO DPM",
+        "series": "Dynamic Penetration Measurement",
+        "features": [
+          "Calibrated ultrasonic transmission measurement",
+          "Innovative material analysis method",
+          "Liquid interaction dynamics",
+          "DDPM accessory for expansion/shrinkage measurement"
+        ]
+      }
+    ]
+  },
+  "partners": {
+    "title": "Our Partners"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "info": {
+      "title": "Company Information",
+      "company": "Company Name",
+      "companyValue": "Vu Anh Industrial Equipment Co., Ltd",
+      "person": "Contact Person",
+      "personValue": "Doanh Nguyen",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website"
+    },
+    "form": {
+      "title": "Send Inquiry",
+      "name": "Full Name",
+      "nameRequired": "Full Name *",
+      "email": "Email Address",
+      "emailRequired": "Email Address *",
+      "phone": "Phone Number",
+      "product": "Product Interest",
+      "productSelect": "-- Select a product --",
+      "message": "Message",
+      "messageRequired": "Message *",
+      "messagePlaceholder": "Please describe your requirements...",
+      "submit": "Send Inquiry",
+      "submitting": "Sending...",
+      "success": "Thank you for your inquiry! We will contact you soon.",
+      "error": "Sorry, there was an error. Please try again.",
+      "errorFields": "Please fill in all required fields.",
+      "errorEmail": "Please enter a valid email address.",
+      "errorMessage": "Message must be at least 10 characters long.",
+      "errorRate": "Too many requests. Please wait {time} seconds."
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Vu Anh Industrial Equipment Co., Ltd. All rights reserved."
+  },
+  "accessibility": {
+    "skipLink": "Skip to main content",
+    "toggleMenu": "Toggle navigation menu",
+    "switchLang": "Switch to {lang}"
+  }
+}
