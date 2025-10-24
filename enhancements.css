@@ -1,0 +1,343 @@
+/**
+ * Additional CSS for Enhanced Features
+ * Add this to the end of style.css
+ */
+
+/* ============================================
+   FORM ERROR STATES
+   ============================================ */
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.form-group.error label::after {
+    content: " ⚠";
+    color: #dc3545;
+}
+
+/* ============================================
+   FORM MESSAGE VARIANTS
+   ============================================ */
+.form-message.warning {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+/* ============================================
+   OFFLINE BADGE
+   ============================================ */
+.offline-badge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff9800;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 9999;
+    display: none;
+    animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   PWA INSTALL PROMPT
+   ============================================ */
+.pwa-install-prompt {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #2c2c2e 100%);
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+    z-index: 1000;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pwa-install-prompt.show {
+    transform: translateY(0);
+}
+
+.pwa-prompt-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pwa-prompt-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.pwa-prompt-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.pwa-prompt-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.pwa-prompt-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.pwa-install-btn,
+.pwa-dismiss-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-size: 0.95rem;
+    min-height: 48px;
+    min-width: 100px;
+}
+
+.pwa-install-btn {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.pwa-install-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(241, 188, 49, 0.4);
+}
+
+.pwa-dismiss-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.pwa-dismiss-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   LOADING SKELETON (for dynamic content)
+   ============================================ */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeleton-text {
+    height: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.skeleton-title {
+    height: 2rem;
+    width: 60%;
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   NETWORK STATUS INDICATOR
+   ============================================ */
+.network-status {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 999;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.network-status.offline {
+    background: #f44336;
+    color: white;
+    display: flex;
+}
+
+.network-status.online {
+    background: #4caf50;
+    color: white;
+    display: flex;
+}
+
+.network-status::before {
+    content: "●";
+    font-size: 1.2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ============================================
+   IMPROVED ACCESSIBILITY
+   ============================================ */
+/* Focus visible for better keyboard navigation */
+*:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ============================================
+   PRINT OPTIMIZATION
+   ============================================ */
+@media print {
+    .offline-badge,
+    .pwa-install-prompt,
+    .network-status,
+    .lang-switcher,
+    .mobile-toggle {
+        display: none !important;
+    }
+    
+    * {
+        color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS FOR NEW FEATURES
+   ============================================ */
+@media (max-width: 768px) {
+    .offline-badge {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+    
+    .pwa-prompt-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .pwa-prompt-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .pwa-install-btn,
+    .pwa-dismiss-btn {
+        width: 100%;
+    }
+    
+    .network-status {
+        top: 70px;
+        right: 10px;
+        font-size: 0.75rem;
+        padding: 0.6rem 1rem;
+    }
+}
+
+/* ============================================
+   DARK MODE SUPPORT (Optional)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    /* Keep website light by default, but prepare for future dark mode */
+    /* Uncomment when implementing dark mode toggle */
+    /*
+    :root {
+        --primary-color: #ffd54f;
+        --secondary-color: #e0e0e0;
+        --light-bg: #1a1a1a;
+        --white: #121212;
+    }
+    */
+}
+
+/* ============================================
+   ENHANCED ANIMATIONS
+   ============================================ */
+@media (prefers-reduced-motion: no-preference) {
+    .product-card,
+    .about-card,
+    .partner-item {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .cta-button {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    box-shadow 0.3s ease;
+    }
+}
