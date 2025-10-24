@@ -23,16 +23,16 @@ III. Cài đặt & Triển khai
 vuanhco.com/
 ├── index.html                 # Updated main HTML
 ├── style.css                  # Original styles
-├── enhancements.css          # Additional styles
+├── enhancements.css          # Additional styles - Updated CSS for New Features
 ├── script.js                 # main JavaScript
 ├── i18n.js                   # Internationalization manager
-├── analytics.js              # Privacy-first analytics
-├── form-handler.js           # Enhanced form handler
+├── analytics.js              # Privacy-first analytics - Analytics & Performance Monitoring (Privacy-Focused)
+├── form-handler.js           # Enhanced form handler - Enhanced Contact Form with Offline Support
 ├── pwa-prompt.js             # PWA installation prompt
 ├── sw.js                     # Service worker
-├── manifest.json             # PWA manifest
+├── manifest.json             # PWA manifest - Progressive Web App (PWA) Support
 ├── robots.txt                # SEO
-├── sitemap.xml               # Enhanced with hreflang
+├── sitemap.xml               # Enhanced with hreflang - SEO-Enhanced Sitemap Generator
 ├── _config.yml               # GitHub Pages config
 ├── i18n/
 │   ├── en.json              # English translations
