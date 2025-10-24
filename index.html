@@ -32,6 +32,29 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
+    <!-- START | Added on 9:45 AM 24/10/2025 -->
+    <!-- PWA Support -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#f1bc31">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Vu Anh">
+
+    <!-- Enhanced SEO -->
+    <link rel="alternate" hreflang="en" href="https://vuanhco.com/?lang=en">
+    <link rel="alternate" hreflang="vi" href="https://vuanhco.com/?lang=vi">
+    <link rel="alternate" hreflang="zh-CN" href="https://vuanhco.com/?lang=cn">
+    <link rel="alternate" hreflang="x-default" href="https://vuanhco.com/">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/style.css" as="style">
+    <link rel="preload" href="/script.js" as="script">
+    <link rel="preload" href="/logos/vuanh-logo1.png" as="image">
+
+    <!-- Additional Stylesheets -->
+    <link rel="stylesheet" href="enhancements.css">
+    <!-- END | Added on 9:45 AM 24/10/2025 -->
+    
     <title>Vu Anh Industrial Equipment - Paper Industry Solutions Vietnam | EMCO Distributor</title>
     
     <!-- Favicon -->
@@ -129,11 +152,18 @@
             
             <div class="nav-right" id="navRight">
                 <ul class="nav-menu" role="menubar">
+                    <!-- backup before change to Add i18n attributes 24/10/2025
                     <li role="none"><a href="#home" role="menuitem">Home</a></li>
                     <li role="none"><a href="#about" role="menuitem">About Us</a></li>
                     <li role="none"><a href="#products" role="menuitem">Products</a></li>
                     <li role="none"><a href="#partners" role="menuitem">Partners</a></li>
                     <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+                    change to Add i18n attributes 24/10/2025 -->
+                    <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#about" data-i18n="nav.about">About Us</a></li>
+                    <li><a href="#about" data-i18n="nav.about">Products</a></li>
+                    <li><a href="#about" data-i18n="nav.about">Partners</a></li>
+                    <li><a href="#about" data-i18n="nav.about">Contact</a></li>
                 </ul>
                 
                 <!-- Language Switcher - NEW FEATURE -->
@@ -149,9 +179,17 @@
     <main id="main-content">
         <section id="home" class="hero" aria-labelledby="hero-heading">
             <img src="logos/vuanh-logo1.png" alt="VU ANH Industrial Equipment Company Logo" class="hero-logo" width="150" height="150" loading="eager">
-            <h1 id="hero-heading">Your Trusted & Reliable <span class="highlight">Equipment Supplier</span></h1>
+            <!-- backup before change to Add i18n attributes 24/10/2025 ******
+            <h1 id="hero-heading">Your Trusted & Reliable <span class="highlight">Equipment Supplier</span></h1>          
             <p>Professional Equipment Solution Provider for Paper Industry</p>
             <a href="#contact" class="cta-button" aria-label="Contact us to get in touch">Get In Touch</a>
+            change to Add i18n attributes 24/10/2025 ****** -->
+            <h1>
+                <span data-i18n="hero.title">Your Trusted & Reliable</span>
+                <span class="highlight" data-i18n="hero.titleHighlight">Equipment Supplier</span>
+            </h1>
+            <p data-i18n="hero.subtitle">Professional Equipment Solution Provider for Paper Industry</p>
+            <a href="#contact" class="cta-button" data-i18n="hero.cta">Get In Touch</a>
         </section>
 
         <section id="about" class="container" aria-labelledby="about-heading">
