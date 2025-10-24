@@ -116,29 +116,57 @@ const i18n = {
         document.title = this.t('meta.title');
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', this.t('meta.description'));
-        
+    
         // Update Open Graph tags
         const ogTitle = document.querySelector('meta[property="og:title"]');
         if (ogTitle) ogTitle.setAttribute('content', this.t('meta.title'));
         const ogDesc = document.querySelector('meta[property="og:description"]');
         if (ogDesc) ogDesc.setAttribute('content', this.t('meta.description'));
-        
+    
         // Update elements with data-i18n attribute
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             const translation = this.t(key);
-            
+        
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 if (element.placeholder !== undefined) {
                     element.placeholder = translation;
                 } else {
                     element.value = translation;
                 }
+            } else if (element.tagName === 'OPTION') {
+                // Special handling for <option> elements
+                element.textContent = translation;
             } else {
                 element.textContent = translation;
             }
         });
-        
+
+        // 🆕 NEW: Handle placeholder translations separately
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            const translation = this.t(key);
+            if (element.placeholder !== undefined) {
+                element.placeholder = translation;
+            }
+        });
+    
+        // Update elements with data-i18n-html (for HTML content)
+        document.querySelectorAll('[data-i18n-html]').forEach(element => {
+            const key = element.getAttribute('data-i18n-html');
+            element.innerHTML = this.t(key);
+        });
+    
+        // Update aria-label attributes
+        document.querySelectorAll('[data-i18n-aria]').forEach(element => {
+            const key = element.getAttribute('data-i18n-aria');
+            element.setAttribute('aria-label', this.t(key));
+        });
+    
+        // Update document language attribute
+        document.documentElement.lang = this.getLangCode();
+        },
+    
         // Update elements with data-i18n-html (for HTML content)
         document.querySelectorAll('[data-i18n-html]').forEach(element => {
             const key = element.getAttribute('data-i18n-html');
