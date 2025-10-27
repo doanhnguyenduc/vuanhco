@@ -468,7 +468,7 @@ function initializeWebsite() {
     if (filterInput) {
         filterInput.addEventListener('input', Utils.debounce(filterProducts, 300));
     }
-    
+    /*
     // Mobile toggle button
     const toggleButton = document.getElementById('mobileToggle');
     if (toggleButton) {
@@ -492,6 +492,7 @@ function initializeWebsite() {
     if (filterInput) {
         filterInput.addEventListener('input', Utils.debounce(filterProducts, 300));
     }
+    */
     
     // Form submission
     const inquiryForm = document.getElementById('inquiryForm');
