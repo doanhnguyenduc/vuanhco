@@ -115,8 +115,8 @@ nav {
 }
  
 .logo-icon {
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     margin-right: 5px;
 }
  
@@ -821,17 +821,17 @@ section {
 
 /* Fix Products section */
 #products {
-    padding-top: 3rem !important;
+    padding-top: 5rem !important;
 }
 
 /* Fix Partners section */
 #partners {
-    padding-top: 3rem !important;
+    padding-top: 5rem !important;
 }
 
 /* Fix Contact section */
 #contact {
-    padding-top: 3rem !important;
+    padding-top: 5rem !important;
 }
 
 /* Ensure text is fully visible */
