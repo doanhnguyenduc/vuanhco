@@ -82,6 +82,17 @@
       "phone": "Phone Number",
       "product": "Product Interest",
       "productSelect": "-- Select a product --",
+      "productOptions": {
+        "moistureMeter": "EMCO Moisture Meter",
+        "dpm": "EMCO DPM",
+        "bondTester": "Internal Bond Tester",
+        "transmitters": "Pressure/Level Transmitters",
+        "valves": "Valves Solutions",
+        "fiberAnalyzer": "MORFI NEO Fiber Analyzer",
+        "simpalab": "SIMPALAB",
+        "printability": "IGT Printability Tester",
+        "other": "Other / General Inquiry"
+      },
       "message": "Message",
       "messageRequired": "Message *",
       "messagePlaceholder": "Please describe your requirements...",
