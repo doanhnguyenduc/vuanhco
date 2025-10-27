@@ -770,3 +770,87 @@ footer {
     pointer-events: none;
     opacity: 0.6;
 }
+
+/* ============================================
+   FIX: Text clipping and i18n issues
+   Added: 2025-10-27
+   ============================================ */
+
+/* Ensure proper spacing for section titles */
+.section-title {
+    line-height: 1.4 !important;
+    padding-top: 1rem !important;
+    margin-top: 0 !important;
+    overflow: visible !important;
+}
+
+/* Fix container overflow issues */
+.container,
+.products,
+section {
+    overflow: visible !important;
+}
+
+/* Ensure hero heading is not clipped */
+.hero h1,
+#hero-heading {
+    line-height: 1.5 !important;
+    padding: 1rem 0 !important;
+    overflow: visible !important;
+}
+
+/* Fix hero section padding */
+.hero {
+    padding: 10rem 2rem 4rem !important; /* Increased from 8rem */
+}
+
+/* Add more space to container sections */
+.container {
+    padding: 5rem 2rem !important; /* Increased from 4rem */
+}
+
+/* Ensure proper spacing at top of sections */
+section {
+    padding-top: 5rem !important;
+}
+
+/* Fix About section specifically */
+#about {
+    padding-top: 5rem !important;
+}
+
+/* Fix Products section */
+#products {
+    padding-top: 3rem !important;
+}
+
+/* Fix Partners section */
+#partners {
+    padding-top: 3rem !important;
+}
+
+/* Fix Contact section */
+#contact {
+    padding-top: 3rem !important;
+}
+
+/* Ensure text is fully visible */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4 !important;
+    overflow: visible !important;
+}
+
+/* Fix for mobile */
+@media (max-width: 768px) {
+    .hero {
+        padding: 8rem 1.5rem 3rem !important;
+    }
+    
+    .container {
+        padding: 4rem 1rem !important;
+    }
+    
+    section {
+        padding-top: 4rem !important;
+    }
+}
